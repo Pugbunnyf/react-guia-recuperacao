@@ -1,0 +1,261 @@
+  :root {
+  --fundo: #f2f5f9;
+  --superficie: #ffffff;
+  --tinta: #16233b;
+  --tinta-suave: #4a5a75;
+  --azul: #1f5fd6;
+  --azul-escuro: #17428f;
+  --borda: #d5dde9;
+  --verde: #14784a;
+  --verde-fundo: #e6f5ed;
+  --vermelho: #b3261e;
+  --vermelho-fundo: #fdeceb;
+  --codigo-fundo: #1b2333;
+  --codigo-texto: #e8edf7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.pagina {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px 16px 56px;
+}
+
+.cabecalho {
+  background: var(--azul-escuro);
+  color: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  margin-bottom: 24px;
+}
+
+.cabecalho h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  line-height: 1.2;
+}
+
+.subtitulo {
+  margin: 0 0 20px;
+  max-width: 60ch;
+  color: #d6e2fa;
+}
+
+.contador {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.barra {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra-preenchida {
+  height: 100%;
+  background: #6fe0a5;
+  transition: width 0.25s ease;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.card {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.card-revisado {
+  border: 2px solid var(--verde);
+  background: #fbfefc;
+}
+
+.card h2,
+.duvidas h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.card h3 {
+  margin: 16px 0 6px;
+  font-size: 1rem;
+  color: var(--azul-escuro);
+}
+
+.card p {
+  margin: 0 0 8px;
+}
+
+pre {
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  background: var(--codigo-fundo);
+  color: var(--codigo-texto);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.erro {
+  background: #fff8e6;
+  border: 1px solid #f0d58a;
+  border-radius: 8px;
+  padding: 4px 14px 10px;
+  margin-bottom: 14px;
+}
+
+.rotulo {
+  display: inline-block;
+  margin: 4px 0 6px !important;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.rotulo-errado {
+  background: var(--vermelho-fundo);
+  color: var(--vermelho);
+}
+
+.rotulo-certo {
+  background: var(--verde-fundo);
+  color: var(--verde);
+}
+
+.botao {
+  background: var(--azul);
+  color: #fff;
+  border: 2px solid var(--azul);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background: var(--azul-escuro);
+  border-color: var(--azul-escuro);
+}
+
+.botao-desfazer {
+  background: var(--verde-fundo);
+  color: var(--verde);
+  border-color: var(--verde);
+}
+
+.botao-desfazer:hover {
+  background: #d3eddf;
+  border-color: var(--verde);
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #f5a623;
+  outline-offset: 2px;
+}
+
+.duvidas {
+  margin-top: 28px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.duvidas p {
+  margin: 0 0 12px;
+}
+
+.campo {
+  display: flex;
+  gap: 10px;
+}
+
+.campo input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 2px solid var(--borda);
+  border-radius: 8px;
+}
+
+.mensagem-erro {
+  margin-top: 10px !important;
+  color: var(--vermelho);
+  font-weight: 600;
+}
+
+.vazio {
+  margin-top: 14px !important;
+  color: var(--tinta-suave);
+}
+
+.lista-duvidas {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.lista-duvidas li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--fundo);
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.botao-remover {
+  flex-shrink: 0;
+  background: transparent;
+  color: var(--vermelho);
+  border: 1px solid var(--vermelho);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .campo {
+    flex-direction: column;
+  }
+}
+
+
+//mo preguiça de fazer styles, usei IA aqui
