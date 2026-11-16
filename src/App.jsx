@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-import CardConceito from '../../../../Downloads/react-guia-recuperacao/react-guia-recuperacao/src/components/CardConceito'
+import { useState } from "react";
+import Header from "./components/Header.jsx";
+import CardConceito from "./components/CardConceito.jsx";
+import ListaDuvidas from "./components/ListaDuvidas.jsx";
+import { conteudos } from "./data/conteudos.js";
 
 function App() {
-  const [revisados, setRevisado(id) {
+  const [revisados, setRevisados] = useState([]);
+  function alternarRevisado(id) {
     if (revisados.includes(id)) {
-      setRevisados (revisados.filter((item) => item !== id));
-    } else {
-      setRevisados ([revisados, id])
+      setRevisados(revisados.filter((item) => item !== id));} 
+      else {
+      setRevisados([...revisados, id]);
     }
-  }]
+  }
 
+  return (
+    <main className="pagina">
+      <Header
+        titulo="trabalho recuperaçao"
+        revisados={revisados.length}
+        total={conteudos.length}/>
 
-return (
-  <main className= "pagina">
-    <section className= "cards">
-      {conteudos.map((conteudo) => (
-        <CardConceito
-        key={conteudo.id}
-        revisad0={revisados.includes(conteudo.id)}
-        aoAlternar={alternarRevisado}/>
-      ))}
-    </section>
-
-    <listaDuvidas/>
-  </main>
-);
+      <section className="cards">
+        {conteudos.map((conteudo) => (
+          <CardConceito
+            key={conteudo.id}
+            conteudo={conteudo}
+            revisado={revisados.includes(conteudo.id)}
+            aoAlternar={alternarRevisado}/>
+        ))}
+      </section>
+      <ListaDuvidas />
+    </main>
+  );
 }
 
-export default App
+export default App;
